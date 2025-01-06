@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterNet - Water Quality Check</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>WaterNet</h1>
+        <p>Check whether water is suitable for drinking and irrigation purposes.</p>
+        <form action="/check_quality" method="POST">
+            <label for="pH">pH Level:</label>
+            <input type="number" step="0.1" id="pH" name="pH" placeholder="Enter pH level (e.g., 7.0)" required>
+
+            <label for="turbidity">Turbidity (NTU):</label>
+            <input type="number" step="0.1" id="turbidity" name="turbidity" placeholder="Enter turbidity (e.g., 2.5)" required>
+
+            <label for="do">Dissolved Oxygen (mg/L):</label>
+            <input type="number" step="0.1" id="do" name="do" placeholder="Enter dissolved oxygen (e.g., 8.0)" required>
+
+            <label for="conductivity">Conductivity (µS/cm):</label>
+            <input type="number" id="conductivity" name="conductivity" placeholder="Enter conductivity (e.g., 500)" required>
+
+            <button type="submit">Check Suitability</button>
+        </form>
+
+        {% if result %}
+        <div id="result">
+            <p><strong id = "water">Water Quality Assessment:</strong> {{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
